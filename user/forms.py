@@ -13,11 +13,12 @@ class RegistrationForm(forms.Form):
 class ArticleCreateForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ('title', 'content', 'tags')
+        fields = ('title', 'content', 'tags', 'image')
 
     title = forms.CharField(label="Заголовок")
-    content = forms.CharField(label="Текст статьи")
-    tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.all())
+    content = forms.CharField(label="Текст статьи", widget=forms.Textarea())
+    tags = forms.ModelMultipleChoiceField(label="Теги", required=False,
+                                          queryset=Tag.objects.all())
 
 
 class CommentCreateForm(forms.ModelForm):
@@ -25,4 +26,5 @@ class CommentCreateForm(forms.ModelForm):
         model = Comment
         fields = ('text', )
 
-    text = forms.CharField(label="Текст комментария", widget=forms.Textarea())
+    text = forms.CharField(label="Текст вашего комментария",
+                           widget=forms.Textarea())

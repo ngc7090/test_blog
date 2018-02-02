@@ -1,4 +1,4 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
@@ -12,7 +12,7 @@ from .models import Article
 @login_required
 def index_view(request):
     context = {'articles': Article.objects.all()}
-    return render_to_response('user/index.html', context=context)
+    return render(request, 'user/index.html', context)
 
 
 @login_required
@@ -54,12 +54,13 @@ def register_view(request):
 @login_required
 def create_view(request):
     if request.method == 'POST':
-        form = ArticleCreateForm(request.POST)
+        form = ArticleCreateForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save(commit=False)
             article.user = request.user
             article = form.save()
-            return HttpResponseRedirect(reverse_lazy('user:index'))
+            return HttpResponseRedirect(
+                reverse_lazy('user:article', kwargs={'id': article.id}))
     else:
         form = ArticleCreateForm()
     return render(request, 'user/create.html', {'form': form})

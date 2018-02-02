@@ -10,7 +10,9 @@ class Article(models.Model):
 
     title = models.CharField(max_length=80, verbose_name='Заголовок')
     content = models.TextField('Текст статьи')
-    tags = models.ManyToManyField('Tag', blank=True,
+    image = models.ImageField(upload_to='user', verbose_name='Изображение',
+                              blank=True, null=True)
+    tags = models.ManyToManyField('Tag', blank=True, null=True,
                                   related_name='articles',
                                   verbose_name='Теги')
     user = models.ForeignKey(User, on_delete=models.CASCADE,

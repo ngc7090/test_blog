@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Войти в систему</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        <p>
-            <label>Username</label>
-            <input type="text" name="username">
-        </p>
-        <p>
-            <label>Password</label>
-            <input type="password" name="password">
-        </p>
-        <button type="submit">Войти</button>
-    </form>
-</body>
-</html>
+{% extends "user/base.html" %}
+{% block title %}Вход в систему{% endblock %}
+{% block head %}Вход в систему{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>
+                        <label>Введите логин</label>
+                        <input type="text" name="username">
+                    </p>
+                    <p>
+                        <label>Введите пароль</label>
+                        <input type="password" name="password">
+                    </p>
+                    <div class="login-href">
+                        <a href="{% url 'user:register' %}">Еще не зарегистрированы?</a>
+                    </div>
+                    <button class="btn btn-warning btn-cntrl" type="submit">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

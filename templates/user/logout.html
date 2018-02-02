@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    Вы вышли из системы.
-    <a href="/">Войти снова</a>
-</body>
-</html>
+{% extends "user/base.html" %}
+{% block title %}Выход из системы{% endblock %}
+{% block head %}Выход из системы{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="alert alert-success" role="alert">
+                    Вы вышли из системы.
+                </div>
+                <div class="login-href">
+                    <a href="{% url 'user:login' %}">Войти снова</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

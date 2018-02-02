@@ -1,0 +1,132 @@
+html {
+  height: 100%;
+}
+
+body {
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+a {
+    text-decoration: none!important;
+    color: #405986;
+}
+.container {
+    flex: 1 0 auto;
+    padding: 20px;
+}
+#head {
+    background: #dce9ef;
+    text-align: center;
+    padding: 40px 0px;
+    margin: 40px 0px;
+}
+#head_to_main {
+    text-transform: uppercase;
+    font-size: 2em;
+}
+#head_page {
+    font-size: 1.3em;
+}
+#head_user {
+    text-align: right;
+    width: fit-content;
+    float: right;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border-radius: 3px;
+    border: 1px solid #c9cfd6;
+}
+#head_user span {
+    display: block;
+}
+footer {
+    background:#73bfbd;
+    width: 100%;
+    flex-shrink: 0;
+    padding: 40px;
+}
+.btn-cntrl {
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+}
+.card {
+    margin: 0px 0px 10px 0px;
+}
+.card-img-left {
+    width: auto;
+    height: 200px;
+}
+.card-body {
+    position: relative;
+    min-height: 200px;
+}
+#articles_list {
+    clear: both;
+}
+#articles_new {
+    float: right;
+}
+.articles_box_user {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    color: #999;
+    font-size: .9em;
+}
+.articles_box_tags {
+    position: absolute;
+    bottom: 10px;
+}
+.articles_box_tag {
+    color: #212529;
+    background-color: #d5d6d8;
+    border-radius: 3px;
+    padding: 3px 10px;
+}
+.articles_box_btn {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+select, textarea, input {
+    width: 100%;
+    border: 1px solid #c1d1d8;
+}
+textarea, input, option {
+    padding: 5px 15px;
+}
+textarea, input, select {
+    border-radius: 3px;
+}
+.article_comments_box {
+    margin: 40px 0px 0px 0px;
+    background: #fbfbfb;
+    border: 1px dashed #dad6d6;
+    border-radius: 3px;
+    padding: 10px 0px;
+}
+.article_comments_box h3 {
+    font-weight: 100;
+}
+.article_comments_box_entity {
+    border: 1px solid #d2cdcd;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background: #fff;
+    border-radius: 3px;
+}
+.article_comments_box_entity span {
+    color: #999;
+}
+.article_comments_box_entity p {
+    margin: 10px 0px;
+}
+.article_comments_new {
+    margin: 20px 0px;
+}
+.login-href {
+    text-align: center;
+}

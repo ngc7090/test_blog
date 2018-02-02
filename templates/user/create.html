@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Создать статью</title>
-</head>
-<body>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Создать</button>
-    </form>
-</body>
-</html>
+{% extends "user/base.html" %}
+{% block title %}Создать статью{% endblock %}
+{% block head %}Создать статью{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form method="POST" action enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-warning btn-cntrl" type="submit">Создать</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
