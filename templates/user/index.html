@@ -1,0 +1,30 @@
+{% extends "user/base.html" %}
+{% block title %}Список статей{% endblock %}
+{% block head %}Список статей{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="articles_list">
+                    {% for article in articles %}
+                        <div class="articles_box">
+                            <div>{{ article.user }}</div>
+                            <div>
+                                <a href="{% url 'user:article' article.id %}"">
+                                    {{ article.title }}
+                                </a>
+                            </div>
+                            <div>{{ article.content }}</div>
+                            {% for tag in article.tags.all %}
+                                <span>{{ tag.name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'user:create' %}" id="articles_new" class="btn">
+                    Создать статью
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
